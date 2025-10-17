@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>TODO — Tailwind</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-slate-950 text-slate-100 min-h-screen">
+    <header class="text-center py-6">
+      <h1 class="text-3xl font-extrabold tracking-tight">TODO <span class="text-cyan-300">Tailwind</span></h1>
+      <p class="text-slate-400 mt-1">Gestor de tareas.</p>
+    </header>
+
+    <main class="max-w-3xl mx-auto p-4 space-y-4">
+      <section class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-xl">
+        <h2 class="text-xl font-semibold mb-3">Crear</h2>
+        <form id="tw-form" class="grid md:grid-cols-2 gap-3" autocomplete="off">
+          <div class="grid gap-1">
+            <label class="text-slate-400 text-sm">Título</label>
+            <input id="tw-title" class="px-3 py-2 rounded-xl border border-slate-800 bg-slate-900 outline-none" placeholder="Ej: Revisar inventario" required />
+          </div>
+          <div class="grid gap-1">
+            <label class="text-slate-400 text-sm">Descripción</label>
+            <input id="tw-desc" class="px-3 py-2 rounded-xl border border-slate-800 bg-slate-900 outline-none" placeholder="Opcional" />
+          </div>
+          <div class="md:col-span-2">
+            <button class="px-4 py-2 rounded-xl font-bold text-slate-900 bg-cyan-300 hover:bg-cyan-200 transition" type="submit">Agregar</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-xl">
+        <div class="flex items-center justify-between">
+          <h2 class="text-xl font-semibold">Tareas</h2>
+          <button id="tw-reload" class="text-slate-400 hover:text-slate-200">Actualizar</button>
+        </div>
+        <ul id="tw-list" class="mt-3 space-y-2" aria-live="polite"></ul>
+      </section>
+    </main>
+
+    <template id="tw-item">
+      <li class="border border-slate-800 rounded-xl p-3 bg-slate-900">
+        <div class="flex items-center justify-between gap-3">
+          <label class="flex items-center gap-3">
+            <input type="checkbox" class="tw-toggle size-5 accent-cyan-300" />
+            <span class="tw-title font-bold"></span>
+          </label>
+          <div class="flex gap-2">
+            <button class="tw-edit px-2 py-1 rounded-lg border border-slate-800">✎</button>
+            <button class="tw-del px-2 py-1 rounded-lg border border-rose-900 text-rose-300">🗑</button>
+          </div>
+        </div>
+        <p class="tw-desc text-slate-400 mt-1"></p>
+      </li>
+    </template>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
